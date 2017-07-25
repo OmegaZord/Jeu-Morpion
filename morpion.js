@@ -77,6 +77,7 @@
 				
 				if(case1 == case2 && case2 == case3)
 				{
+					document.getElementById("lignehaut").style.visibility = "visible";
 					return case1;
 				}
 				else if(case4 == case5 && case5 == case6)
@@ -90,6 +91,7 @@
 				
 				else if(case1 == case4 && case4 == case7)
 				{
+					document.getElementById("lignegauche").style.visibility = "visible";
 					return case1;
 				}
 				else if(case2 == case5 && case5 == case8)
@@ -129,4 +131,24 @@
 				
 				casecoches = 0;
 				currentPlayer = 1;
+				document.getElementById("lignehaut").style.visibility = "hidden";
+				document.getElementById("lignegauche").style.visibility = "hidden";
+			}
+			
+			function changeStyle()
+			{
+				var selector = document.getElementById("selectStyle");
+				
+				if(selector.options[selector.selectedIndex].value == "styleRouge")
+				{
+					document.getElementById("case1").style.background= "red";
+					document.getElementById("case2").style.background= "red";
+					document.getElementById("case3").style.background= "red";
+					document.getElementById("case4").style.background= "red";
+					document.getElementById("case5").style.background= "red";
+					document.getElementById("case6").style.background= "red";
+					document.getElementById("case7").style.background= "red";
+					document.getElementById("case8").style.background= "red";
+					document.getElementById("case9").style.background= "red";
+				}
 			}

@@ -7,37 +7,55 @@
 		<title>Jeu du morpion</title>
 		<script src="morpion.js"></script>
 	</head>
-	<body onload="load();">
-		<div class="container">
-			<p>Pseudo Joueur1: <span id="psj1"></span></p>
-			<p>Pseudo Joueur2: <span id="psj2"></span></p>
-		</div>
-		<div class="container">
+	<body onload="load()">
+		<div class="container centrer">
 			<div class="row">
-				<div id="case1" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
-				<div id="case2" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
-				<div id="case3" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
-			</div>
-			<div class="row">
-				<div id="case4" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
-				<div id="case5" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
-				<div id="case6" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
-			</div>
-			<div class="row">
-				<div id="case7" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
-				<div id="case8" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
-				<div id="case9" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
+				<p class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Pseudo Joueur1: <span id="psj1"></span></p>
+				<p class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Pseudo Joueur2: <span id="psj2"></span></p>
 			</div>
 		</div>
-		<button class="btn btn-warning" onclick="reset()">Reset</button>
+		<div id="lignehaut"></div>
+		<div id="lignegauche"></div>
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div id="case1" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
+						<div id="case2" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
+						<div id="case3" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
+					</div>
+					<div class="row">
+						<div id="case4" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
+						<div id="case5" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
+						<div id="case6" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
+					</div>
+					<div class="row">
+						<div id="case7" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
+						<div id="case8" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
+						<div id="case9" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row centrer">
+			<button class="btn btn-warning" onclick="reset()">Reset</button>
+		</div>
+		<div class="container">
+			<div class="row centrer">
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 					<p>Nombre de parties: <span id="nmbGame">0</span></p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 					<p>Victoires</p>
 					<ul id="victoires"></ul>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<select id="selectStyle" onchange="changeStyle()">
+						<option value="styleBleu">Style bleu</option>
+						<option value="styleRouge">Style rouge</option>
+						<option value="styleVert">Style vert</option>
+						<option value="styleJaune">Style jaune</option>
+					</select>
 				</div>
 			</div>
 		</div>
