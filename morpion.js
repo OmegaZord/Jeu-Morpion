@@ -20,8 +20,13 @@
 				
 				if(casecoches == 9)
 				{
+					var node = document.createElement("LI");
+					var textnode = document.createTextNode("Le gagnant est " + determineWinner());
+					node.appendChild(textnode);
+					document.getElementById("victoires").appendChild(node);
 					
-					alert("Le gagnant est " + determineWinner() + " - Partie terminée");
+					document.getElementById("nmbGame").innerHTML = parseInt(document.getElementById("nmbGame").innerHTML) + 1;
+					//alert("Partie terminée");
 				}
 			}
 			
@@ -41,34 +46,53 @@
 				{
 					return case1;
 				}
-				if(case4 == case5 && case5 == case6)
+				else if(case4 == case5 && case5 == case6)
 				{
 					return case4;
 				}
-				if(case7 == case8 && case8 == case9)
+				else if(case7 == case8 && case8 == case9)
 				{
 					return case7;
 				}
 				
-				if(case1 == case4 && case4 == case7)
+				else if(case1 == case4 && case4 == case7)
 				{
 					return case1;
 				}
-				if(case2 == case5 && case5 == case8)
+				else if(case2 == case5 && case5 == case8)
 				{
 					return case2;
 				}
-				if(case3 == case6 && case6 == case9)
+				else if(case3 == case6 && case6 == case9)
 				{
 					return case3;
 				}
 				
-				if(case1 == case5 && case5 == case9)
+				else if(case1 == case5 && case5 == case9)
 				{
 					return case1;
 				}
-				if(case3 == case5 && case5 == case7)
+				else if(case3 == case5 && case5 == case7)
 				{
 					return case3;
 				}
+				else 
+				{
+					return "Personne";
+				}
+			}
+			
+			function reset()
+			{
+				document.getElementById("case1").innerHTML = "";
+				document.getElementById("case2").innerHTML = "";
+				document.getElementById("case3").innerHTML = "";
+				document.getElementById("case4").innerHTML = "";
+				document.getElementById("case5").innerHTML = "";
+				document.getElementById("case6").innerHTML = "";
+				document.getElementById("case7").innerHTML = "";
+				document.getElementById("case8").innerHTML = "";
+				document.getElementById("case9").innerHTML = "";
+				
+				casecoches = 0
 			}
