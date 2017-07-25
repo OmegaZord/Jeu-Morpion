@@ -1,6 +1,26 @@
 			var currentPlayer = 1;
 			var casecoches = 0;
+			var pseudoJ1 = "X";
+			var pseudoJ2 = "O";
 
+			function load()
+			{
+				var j1Temp = prompt("Entrez votre pseudo (Joueur1): ");
+				var j2Temp = prompt("Entrez votre pseudo (Joueur2): ");
+				
+				if(j1Temp != null)
+				{
+					pseudoJ1 = j1Temp;
+				}
+				if(j2Temp != null)
+				{
+					pseudoJ2 = j2Temp;
+				}
+				
+				document.getElementById("psj1").innerHTML = pseudoJ1;
+				document.getElementById("psj2").innerHTML = pseudoJ2;
+			}
+			
 			function caseclick(caseid)
 			{
 				if(document.getElementById(caseid).innerHTML == "")
@@ -21,12 +41,25 @@
 				if(casecoches == 9)
 				{
 					var node = document.createElement("LI");
-					var textnode = document.createTextNode("Le gagnant est " + determineWinner());
+					var winner = "";
+					
+					if(determineWinner() == "X")
+					{
+						winner = pseudoJ1;
+					}
+					else if(determineWinner() == "O")
+					{
+						winner = pseudoJ2;
+					}
+					else
+					{
+						winner = "Personne";
+					}
+					var textnode = document.createTextNode("Le gagnant est " + winner);
 					node.appendChild(textnode);
 					document.getElementById("victoires").appendChild(node);
 					
 					document.getElementById("nmbGame").innerHTML = parseInt(document.getElementById("nmbGame").innerHTML) + 1;
-					//alert("Partie terminée");
 				}
 			}
 			
@@ -94,5 +127,6 @@
 				document.getElementById("case8").innerHTML = "";
 				document.getElementById("case9").innerHTML = "";
 				
-				casecoches = 0
+				casecoches = 0;
+				currentPlayer = 1;
 			}

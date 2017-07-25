@@ -7,7 +7,11 @@
 		<title>Jeu du morpion</title>
 		<script src="morpion.js"></script>
 	</head>
-	<body>
+	<body onload="load();">
+		<div class="container">
+			<p>Pseudo Joueur1: <span id="psj1"></span></p>
+			<p>Pseudo Joueur2: <span id="psj2"></span></p>
+		</div>
 		<div class="container">
 			<div class="row">
 				<div id="case1" class="caseMorpion col-xs-4 col-sm-4 col-md-4 col-lg-4" onclick="caseclick(this.id)"></div>
