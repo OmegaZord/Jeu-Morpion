@@ -49,6 +49,8 @@
 			{
 				if(gameOver == false)
 				{			
+					//changeStyle();
+					
 					var numeroCase = parseInt(caseid.slice(4, 6)) -1;
 					
 					if(tabCase[numeroCase][1] == false)
@@ -70,7 +72,6 @@
 					
 					var win = checkWinner();
 				
-					
 					if(win != null)
 					{
 						gameOver = true;
@@ -177,6 +178,19 @@
 						
 					return currentPlayer;
 				}
+				
+				var allCasesCochees = 0;
+				for(var i =0; i<9;i++)
+				{
+					if(tabCase[i][1] == true)
+					{
+						allCasesCochees++;
+					}
+					if(allCasesCochees == 9)
+					{
+						gameOver = true;
+					}
+				}
 				return null;
 			}
 			
@@ -206,10 +220,7 @@
 				//Le joueur 1 commence
 				currentPlayer = 1;
 				
-				//Revenir au style de départ
-				var selector = document.getElementById("selectStyle");
-				selector.value = "styleDefault";
-				
+				//Enlever coloration ligne gagnante
 				changeStyle();
 				
 				gameOver = false;
