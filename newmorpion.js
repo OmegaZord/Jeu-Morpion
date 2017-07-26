@@ -1,6 +1,7 @@
 			var currentPlayer = 1;
 			var pseudoJ1 = "X";
 			var pseudoJ2 = "O";
+			var iaPlayer = false;
 			var tabCase = [
 				["case1", false, "a"], 
 				["case2", false, "b"], 
@@ -16,15 +17,23 @@
 			function load()
 			{
 				var j1Temp = prompt("Entrez votre pseudo (Joueur1): ");
-				var j2Temp = prompt("Entrez votre pseudo (Joueur2): ");
-				
 				if(j1Temp != null && j1Temp != "")
 				{
 					pseudoJ1 = j1Temp;
 				}
-				if(j2Temp != null && j2Temp != "")
+				
+				if(confirm("Souhaitez-vous jouer contre une IA?"))
 				{
-					pseudoJ2 = j2Temp;
+					iaPlayer = true;
+					pseudoJ2 = "IA";
+				}
+				else
+				{
+					var j2Temp = prompt("Entrez votre pseudo (Joueur2): ");
+					if(j2Temp != null && j2Temp != "")
+					{
+						pseudoJ2 = j2Temp;
+					}
 				}
 				
 				document.getElementById("psj1").innerHTML = pseudoJ1;
@@ -79,6 +88,11 @@
 					document.getElementById("nmbGame").innerHTML = parseInt(document.getElementById("nmbGame").innerHTML) + 1;
 					
 					reset();
+				}
+				
+				if(iaPlayer == true && currentPlayer == 2)
+				{
+					IAChoice();
 				}
 			}
 			
@@ -225,4 +239,26 @@
 						casesGrille[i].style.color = "black";
 					}
 				}
+			}
+			
+			function IAChoice()
+			{
+				var tabCaseEmpty = [];
+				
+				for(var i =0; i<9; i++)
+				{
+					
+					if(tabCase[i][1] == false)
+					{
+						tabCaseEmpty.push(tabCase[i]);
+					}
+				}
+				
+				//console.log(tabCaseEmpty);
+				
+				var testIA = tabCaseEmpty[Math.floor(Math.random() * tabCaseEmpty.length)];
+				
+				//console.log(testIA);
+				//console.log(testIA[0]);
+				caseclick(testIA[0]);
 			}
