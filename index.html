@@ -5,7 +5,9 @@
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="morpionstyle.css" />
 		<title>Jeu du morpion</title>
-		<script src="morpion.js"></script>
+		<!--  <script src="morpion.js"></script> -->
+		<script src="newmorpion.js"></script>
+		
 	</head>
 	<body onload="load()">
 		<div class="container centrer">
@@ -44,18 +46,17 @@
 			<div class="row centrer">
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 					<p>Nombre de parties: <span id="nmbGame">0</span></p>
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-					<p>Victoires</p>
-					<ul id="victoires"></ul>
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<select id="selectStyle" onchange="changeStyle()">
+						<option value="styleDefault">Style par défaut</option>
 						<option value="styleBleu">Style bleu</option>
 						<option value="styleRouge">Style rouge</option>
 						<option value="styleVert">Style vert</option>
 						<option value="styleJaune">Style jaune</option>
 					</select>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+					<p>Victoires</p>
+					<ul id="victoires"></ul>
 				</div>
 			</div>
 		</div>
